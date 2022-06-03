@@ -53,7 +53,7 @@ def color_balancing(source, source_hist, references, references_hists, output):
         subprocess.run(["rio", "hist", "--color-space", "RGB", s_image_path, r_image_path, o_image_path])
 
 
-def main(input_dir, output_dir):
+def cal_hist(input_dir, output_dir):
     files = os.listdir(input_dir)
     for img_file in files:
         img =cv2.imread(os.path.join(input_dir, img_file))
@@ -62,7 +62,9 @@ def main(input_dir, output_dir):
 
 
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser(description="Road and Building Extraction")
+    parser.add_argument("-color_balancing", action=argparse.BooleanOptionalAction)
     parser.add_argument("-s", type=str)
     parser.add_argument("-sh", type=str)
     parser.add_argument("-r", type=str)
@@ -70,4 +72,7 @@ if __name__ == "__main__":
     parser.add_argument("-o", type=str)
 
     args = parser.parse_args()
-    color_balancing(args.s, args.sh, args.r, args.rh, args.o)
+    if args.color_balancing:
+        color_balancing(args.s, args.sh, args.r, args.rh, args.o)
+    else:
+        cal_hist(args.s, args.o)
