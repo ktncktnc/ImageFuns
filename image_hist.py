@@ -73,7 +73,7 @@ if __name__ == "__main__":
     parser.add_argument("-o", type=str)
 
     args = parser.parse_args()
-    if args.color_balancing:
+    if args.colorbalancing:
         color_balancing(args.s, args.sh, args.r, args.rh, args.o)
     else:
         cal_hist(args.s, args.o)
