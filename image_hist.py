@@ -64,7 +64,7 @@ def cal_hist(input_dir, output_dir):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Road and Building Extraction")
-    parser.add_argument("-color_balancing", action=argparse.BooleanOptionalAction)
+    parser.add_argument("--color-balancing", action=argparse.BooleanOptionalAction)
     parser.add_argument("-s", type=str)
     parser.add_argument("-sh", type=str)
     parser.add_argument("-r", type=str)
