@@ -55,7 +55,7 @@ def color_balancing(source, source_hist, references, references_hists, output):
 
 def cal_hist(input_dir, output_dir):
     files = os.listdir(input_dir)
-    for img_file in files:
+    for img_file in tqdm(files):
         img =cv2.imread(os.path.join(input_dir, img_file))
         hist = cal_image_hist(img)
         np.savetxt(os.path.join(output_dir, img_file[:-3] + "txt"), hist)
