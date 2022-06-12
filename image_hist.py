@@ -36,7 +36,7 @@ def color_balancing(source, source_hist, references, references_hists, output):
         s_image_path = os.path.join(source, s_image)
         s_hist_path = os.path.join(source_hist, s_image[:-3] + "txt")
         s_hist = np.loadtxt(s_hist_path, dtype=np.float32)
-
+        print(s_image)
         best_image = r_images[0]
         best_corr = 10.0
         for r_hist_path in r_hists:
