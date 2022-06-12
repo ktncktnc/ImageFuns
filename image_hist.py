@@ -24,6 +24,7 @@ def cal_image_hist(image):
 
 def color_balancing(source, source_hist, references, references_hists, output):
     source_images = os.listdir(source)
+    source_images.sort()
 
     r_images = os.listdir(references)
     r_hists = os.listdir(references_hists)
