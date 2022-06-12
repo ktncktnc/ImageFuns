@@ -37,13 +37,13 @@ def color_balancing(source, source_hist, references, references_hists, output):
         s_hist = np.loadtxt(s_hist_path, dtype=np.float32)
 
         best_image = r_images[0]
-        best_corr = 0.0
+        best_corr = 10.0
         for r_hist_path in r_hists:
             r_hist = os.path.join(references_hists, r_hist_path)
             r_hist = np.loadtxt(r_hist, dtype=np.float32)
 
             corr = cv2.compareHist(s_hist, r_hist, 1)
-            if corr - best_corr < 0.000001:
+            if corr - best_corr < 0.00001:
                 best_image = r_hist_path[:-3] + "png"
                 best_corr = corr
 
