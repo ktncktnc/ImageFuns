@@ -48,6 +48,8 @@ def color_balancing(source, source_hist, references, references_hists, output):
                 best_image = r_hist_path[:-3] + "png"
                 best_corr = corr
 
+        print(best_corr)
+        print(best_image)
         r_image_path = os.path.join(references, best_image)
         o_image_path = os.path.join(output, s_image)
 
